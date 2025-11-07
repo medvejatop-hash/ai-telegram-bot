@@ -1,17 +1,20 @@
 const express = require('express');
 const app = express();
+
 app.use(express.json());
 
+// Простой webhook - всегда отвечает OK
 app.post('/webhook', (req, res) => {
-  console.log('✅ WEBHOOK WORKS!');
+  console.log('✅ Webhook received!');
   res.send('OK');
 });
 
+// Главная страница
 app.get('/', (req, res) => {
-  res.send('SERVER WORKS!');
+  res.send('✅ Server is working!');
 });
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-  console.log('✅ SERVER STARTED');
+  console.log('✅ Server started on port ' + PORT);
 });
