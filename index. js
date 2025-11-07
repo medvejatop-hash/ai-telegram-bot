@@ -1,18 +1,17 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 10000;
-
 app.use(express.json());
 
 app.post('/webhook', (req, res) => {
-  console.log('Webhook received');
+  console.log('✅ WEBHOOK WORKS!');
   res.send('OK');
 });
 
 app.get('/', (req, res) => {
-  res.send('Server working!');
+  res.send('SERVER WORKS!');
 });
 
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-  console.log('Server started on port ' + PORT);
+  console.log('✅ SERVER STARTED');
 });
